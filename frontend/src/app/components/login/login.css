@@ -1,0 +1,66 @@
+body, :host {
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    /* Dégradé stylisé bleu-violet */
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 40%, #a5b4fc 70%, #818cf8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .center{
+    text-align: center;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    text-align: center;
+    margin: auto;
+    max-width: 40%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+    justify-content: center;
+  }
+  
+  mat-card.login-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 32px 0 rgba(60,60,120,0.08);
+    padding: 24px 16px;
+  }
+  
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  mat-card-title {
+    font-size: 24px;
+    color: #333; /* Couleur Material bleu */
+    font-weight: bold;
+    text-align: center;
+    margin-left: 100px;
+    padding-bottom: 15%;
+  }
+  
+  button.full-width {
+    font-size: 1.1rem;
+    padding: 12px 0;
+  }

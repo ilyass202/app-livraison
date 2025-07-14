@@ -1,0 +1,50 @@
+<div *ngIf="panier.length > 0; else empty">
+  <div class="panier-container">
+    <div class="panier-element" *ngFor="let elm of panier">
+      <div class="product-info">
+        <div class="produit-image">
+          <img [src]="elm.img" alt="{{elm.produitNom}}">
+        </div>
+        <div class="produits-details">
+          <div class="item-row">
+            <div class="item-name" [ngClass]="{'highlight': elm.highlighted}">
+              {{elm.produitNom}}
+            </div>
+            <div class="produit-prix">
+              {{elm.prix | currency}}
+            </div>
+            <div class="quantite-control">
+              <button mat-icon-button (click)="diminuerQuantite(elm.produitId)" [disabled]="elm.quantite <= 1">
+                <mat-icon>remove_circle_outline</mat-icon>
+              </button>
+              <span class="quantite">{{elm.quantite}}</span>
+              <button mat-icon-button (click)="augmenterQuantite(elm.produitId)">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="supprimerArticle(elm.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Affichage du total de la commande -->
+    <div class="prix-total">
+      Prix Total : {{commande?.total | currency}}
+    </div>
+    <!-- Affichage de la quantité totale -->
+    <div class="quantite-total">
+      Quantité totale : {{getQuantiteTotale()}}
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click) = "validerCommande()">Placer Commande</button>
+    </div>
+  </div>
+</div>
+<ng-template #empty>
+  <div class="empty">
+    <mat-icon>remove_shopping_cart</mat-icon>
+    <span>Vous n'avez rien ajouté au panier</span>
+  </div>
+</ng-template>

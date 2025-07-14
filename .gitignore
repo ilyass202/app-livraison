@@ -1,0 +1,17 @@
+# Backend (Java/Spring Boot)
+Backend/target/
+Backend/.idea/
+Backend/.mvn/
+Backend/*.iml
+Backend/*.log
+
+# Frontend (Angular)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Global
+.DS_Store
+*.log
+*.env
+.env.local

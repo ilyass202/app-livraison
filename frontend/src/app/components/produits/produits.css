@@ -1,0 +1,106 @@
+.recherche {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 80px;
+}
+
+.recherche-input {
+  width: 300px;
+  margin-right: 15px;
+  position: relative;
+  height: 80px;
+}
+
+.recherche-input input {
+  padding: 10px;
+  width: 200px;
+  height: 100px;
+}
+
+.recherche-input button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.produit-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: aliceblue;
+  min-height: 20vh;
+  padding: 20px;
+}
+
+.produit-card {
+  width: calc(33% - 20px);
+  margin-bottom: 20px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.produit-img {
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.produit-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.produit-details {
+  padding: 28px;
+}
+
+.produit-nom {
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+  margin-bottom: 10px;
+}
+
+.produit-description {
+  display: -webkit-box;
+  line-clamp: 2; /* nombre de lignes max */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; /* adapte à ta mise en page */
+  min-height: 2.5em; /* pour garder la même hauteur même si la description est courte */
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.info_label {
+  margin-right: 8px;
+}
+
+.info_value {
+  font-weight: bold;
+}
+.button{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  color: blue;
+  
+}
+.ajouter{
+  margin-right: 10px;
+  color: blue;
+  font-weight: bold;
+}

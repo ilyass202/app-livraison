@@ -1,0 +1,34 @@
+<form [formGroup]="recherche" (ngSubmit)="Submit()" class="recherche">
+    <mat-form-field appearance = "outline" class="recherche-input">
+    <input matInput placeholder="Rechercher un produit..." formControlName="parametre">
+    <button mat-raised-button color="primary" type="submit" [disabled] = "recherche.invalid">
+        <mat-icon>search</mat-icon>
+    </button>
+    </mat-form-field>
+</form>
+
+
+<div class="produit-list">
+    <mat-card class="produit-card" *ngFor = "let produit of produits ">
+        <div class="produit-img">
+            <img [src]="produit.img" alt="produit-img">
+        </div>
+        <div class="produit-details">
+            <h2 class ="produit-nom" >{{produit.nom}}</h2>
+            <p class = "produit-description">{{produit.description}}</p>
+
+            <mat-divider></mat-divider>
+            <div class="info-row">
+                <span class="info_label">Prix :</span>
+                <span class="info_value">{{produit.prix}}</span>
+            </div>
+
+            <mat-divider></mat-divider>
+            <div class="button">
+            <button mat-raised-button color="primary"(click)= "ajouterPanier(produit.id)" class="ajouter">
+                ajouter au panier
+            </button>
+            </div>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class = "navbar">
+  <span style="cursor:pointer;" routerLink="/Home" class="nav">
+    <mat-icon>menu</mat-icon> App_Livraison
+  </span>
+  
+  <div class="spacer"></div>
+
+  <button mat-button routerLink="/Home">Home</button>
+
+  <ng-container *ngIf="!authService.isUserAuthenticated()">
+    <button mat-raised-button color="accent" routerLink="/register">S'inscrire</button>
+    <button mat-button routerLink="/login">Login</button>
+  </ng-container>
+
+  <ng-container *ngIf="authService.isUserAuthenticated()">
+    <button mat-button routerLink = "/produits">produits</button>
+    <button mat-button routerLink = "client/commande">commande</button>
+    <button mat-button routerLink = "/panier">Panier</button>
+    <button mat-button routerLink = "client/profile">profile</button>
+    <button mat-button (click)="authService.logout()" routerLink ="/Home">Logout</button>
+  </ng-container>
+</mat-toolbar>
+<router-outlet></router-outlet>
