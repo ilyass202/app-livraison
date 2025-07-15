@@ -23,6 +23,7 @@ export class Panier implements OnInit {
 
   panier: any[] = [];
   commande: any;
+  panierProduit : any[] =[];
   constructor(
     private produitservice: ProduitService,
     private snack: MatSnackBar,
@@ -33,6 +34,9 @@ export class Panier implements OnInit {
 
   ngOnInit(): void {
     this.getPanier();
+    this.produitservice.getPanierById().subscribe(data=>{
+      this.panierProduit = data.articles;
+    })
   }
 
   getPanier() {
@@ -81,5 +85,27 @@ export class Panier implements OnInit {
         this.router.navigateByUrl('/map');
       }
     )
+  }
+  placerCommande(){
+    const userStr = localStorage.getItem('loggedUser');
+    if(userStr){
+      const user = JSON.parse(userStr);
+      console.log('panierProduit:', this.panierProduit); // debug
+      const produits = this.panierProduit.map(p => ({
+        nom: p.produitNom,
+        prix: Math.round(p.prix * 100), // prix en centimes, arrondi
+        quantite: p.quantite
+      }));
+      console.log('produits (après mapping):', produits); // debug
+      const info = {
+        userId: user.id,
+        produits: produits
+      };
+      console.log('info envoyé au backend :', info); // debug
+      this.produitservice.creerSessionStripe(info).subscribe((resp: any) => {
+        localStorage.setItem('stripeSessionId', resp.sessionId);
+        window.location.href = resp.url;
+      });
+    }
   }
 }

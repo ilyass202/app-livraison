@@ -69,6 +69,7 @@ export class ProduitService {
         observer.error('Utilisateur non connecté');
         return;
       }
+      //je peux integre ici une fonction de redirection ic
       navigator.geolocation.getCurrentPosition(
         position => {
           const user = JSON.parse(userStr);
@@ -93,5 +94,8 @@ export class ProduitService {
   }
   getCommandeInfo(userId: number): Observable<any> {
     return this.http.get(`${BASIC_URL}/commande/info/${userId}`);
+  }
+  creerSessionStripe(info : any){
+    return this.http.post(`${BASIC_URL}/paiement/session` , info)
   }
 }

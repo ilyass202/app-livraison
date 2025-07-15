@@ -23,7 +23,7 @@ public class StripeService {
     public StripeReponseDto checkout(CheckoutRequestDto dto) {
         Stripe.apiKey = secretKey;
 
-        // Préparer les line items Stripe à partir des produits du panier
+        
         List<SessionCreateParams.LineItem> lineItems = new ArrayList<>();
         for (ProduitStripeDto produit : dto.getProduits()) {
             SessionCreateParams.LineItem lineItem = SessionCreateParams.LineItem.builder()
