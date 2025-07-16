@@ -30,7 +30,7 @@ public class StripeService {
                 .setQuantity((long) produit.getQuantite()) // Correction du cast int -> long
                 .setPriceData(
                     SessionCreateParams.LineItem.PriceData.builder()
-                        .setCurrency("eur")
+                        .setCurrency("mad")
                         .setUnitAmount(produit.getPrix()) // prix en centimes
                         .setProductData(
                             SessionCreateParams.LineItem.PriceData.ProductData.builder()
