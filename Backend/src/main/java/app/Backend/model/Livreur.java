@@ -22,7 +22,7 @@ public class Livreur {
     private Long id;
     private String nom;
     @Column(columnDefinition = "POINT SRID 4326")
-    private Point location; // Ex. "POINT(longitude latitude)"
+    private Point location; // "POINT(longitude latitude)"
     @OneToMany(mappedBy = "livreur")
     @JsonManagedReference(value = "livreur-commandes")
     private List<Commande> commandes;

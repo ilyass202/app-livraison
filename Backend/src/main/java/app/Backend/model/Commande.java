@@ -37,7 +37,6 @@ public class Commande {
 
     @ManyToOne
     private Livreur livreur;
-
     private double clientLong;
     private double clientLalt;
     private double prix;
