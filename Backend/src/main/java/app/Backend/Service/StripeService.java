@@ -31,7 +31,7 @@ public class StripeService {
                 .setPriceData(
                     SessionCreateParams.LineItem.PriceData.builder()
                         .setCurrency("mad")
-                        .setUnitAmount(produit.getPrix()) // prix en centimes
+                        .setUnitAmount(produit.getPrix()*100) // prix en centimes
                         .setProductData(
                             SessionCreateParams.LineItem.PriceData.ProductData.builder()
                                 .setName(produit.getNom())
